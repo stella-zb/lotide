@@ -1,23 +1,4 @@
-// TEST/ASSERTION FUNCTIONS
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  } else {
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) return false;
-    }
-    return true;
-  }
-};
-
-const assertArraysEqual = function(actual, expected) {
-  const result = eqArrays(actual, expected);
-  if (result === true) {
-    console.log(`✅✅✅ Assertion passed: [${actual}] === [${expected}]`);
-  } else {
-    console.log(`🔴🔴🔴 Assertion failed: [${actual}] === [${expected}]`);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual');
 
 // Implement middle which will take in an array and return the middle-most element(s) of the given array.
 // For arrays with one or two elements, there is no middle. Return an empty array.
@@ -38,10 +19,4 @@ const middle = function(array) {
   }
 };
 
-// TEST CODE
-assertArraysEqual(middle([1]), []);
-assertArraysEqual(middle([1, 2]), []);
-assertArraysEqual(middle([1, 2, 3]), [2]);
-assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
-assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+module.exports = middle;
